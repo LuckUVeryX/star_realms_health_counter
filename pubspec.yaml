@@ -1,0 +1,30 @@
+name: star_realms_health_counter
+description: Star Realms Health Counter
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.3.7
+  intl: ^0.18.0
+  riverpod_annotation: ^2.1.2
+
+dev_dependencies:
+  build_runner: ^2.4.6
+  custom_lint: ^0.5.2
+  flutter_test:
+    sdk: flutter
+  mocktail: ^0.3.0
+  riverpod_generator: ^2.2.6
+  riverpod_lint: ^2.0.1
+  very_good_analysis: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
