@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - run: flutter pub run build_runner build --delete-conflicting-outputs
+      - uses: bluefireteam/flutter-gh-pages@v7
+        with:
+          baseHref: /star_realms_health_counter/
+          customArgs: "--target lib/main_production.dart"
