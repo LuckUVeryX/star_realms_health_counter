@@ -1,12 +1,12 @@
 {
-    "name": "Star Realms Health Counter2",
-    "short_name": "Star Realms Health Counter2",
+    "name": "Star Realms Health Counter",
+    "short_name": "Star Realms Health Counter",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "description": "Star Realms Health Counter",
-    "orientation": "portrait-primary",
+    "orientation": "landscape-primary",
     "prefer_related_applications": false,
     "icons": [
         {
