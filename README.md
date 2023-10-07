@@ -1,5 +1,8 @@
 # Star Realms Health Counter
 
+<img width="1512" alt="image" src="https://github.com/LuckUVeryX/star_realms_health_counter/assets/71072280/82f62ded-947e-4f03-a3c4-960ba8e5a1e5">
+
+
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
