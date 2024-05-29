@@ -21,8 +21,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.1
-  riverpod_generator: ^2.2.6
-  riverpod_lint: ^2.0.1
+  riverpod_generator: ^2.4.0
+  riverpod_lint: ^2.3.10
   very_good_analysis: ^5.0.0
 
 flutter:
