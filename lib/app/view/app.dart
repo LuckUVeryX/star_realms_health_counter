@@ -11,7 +11,7 @@ class App extends StatelessWidget {
 
     return MaterialApp(
       theme: theme.copyWith(
-        colorScheme: theme.colorScheme.copyWith(background: Colors.black),
+        colorScheme: theme.colorScheme.copyWith(surface: Colors.black),
         inputDecorationTheme: const InputDecorationTheme(
           border: InputBorder.none,
         ),
