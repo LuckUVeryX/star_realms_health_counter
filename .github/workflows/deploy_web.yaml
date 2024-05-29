@@ -13,4 +13,4 @@ jobs:
       - uses: bluefireteam/flutter-gh-pages@v8
         with:
           baseHref: /star_realms_health_counter/
-          customArgs: "--target lib/main_production.dart"
+          customArgs: "--target lib/main_production.dart --wasm"
