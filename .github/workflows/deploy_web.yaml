@@ -42,7 +42,7 @@ jobs:
           flutter config --enable-web
 
       - name: 🛠️ Build Web
-        run: flutter build web --release -t lib/main_production.dart --wasm
+        run: flutter build web --release -t lib/main_production.dart --base-href /star-realms-health-counter/ --wasm
 
       - name: 🤖 Configure Github Actions
         run: |
