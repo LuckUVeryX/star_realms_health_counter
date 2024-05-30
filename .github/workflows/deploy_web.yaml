@@ -1,18 +1,59 @@
+name: "Deploy Web App to Github Pages"
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🤫 Set API Keys
+        run: echo $API_KEYS_JSON | base64 -d > api-keys.json
+        env:
+          API_KEYS_JSON: ${{ secrets.API_KEYS_JSON }}
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
         with:
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
           channel: stable
-      - run: flutter pub run build_runner build --delete-conflicting-outputs
-      - uses: bluefireteam/flutter-gh-pages@v8
-        with:
-          baseHref: /star_realms_health_counter/
-          customArgs: "--target lib/main_production.dart --wasm"
+
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub get
+
+      - name: ⚙️ Run Code Generation
+        run: |
+          flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: 🌏 Enable Web
+        run: |
+          flutter config --enable-web
+
+      - name: 🛠️ Build Web
+        run: flutter build web --release -t lib/main_production.dart --wasm
+
+      - name: 🤖 Configure Github Actions
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: 🎄 Extract Web Build
+        run: |
+          git --work-tree build/web add --all
+
+      - name: 🚀 Push to gh-pages
+        run: |
+          git commit -m "Automatic deployment by github-actions"
+          git push origin HEAD:gh-pages --force
